@@ -34,6 +34,7 @@ int main(){
     cout << "1: Register\n2: Login\n:Your choice: ";
     cin >> choice;
 
+
     if (choice == 1)
     {
         string username, password;
@@ -60,13 +61,12 @@ int main(){
             cout << "False login!" << endl;
             system("PAUSE");
             return 0;
-        }   
+        }
+        else
+        {
+            cout << "Success logged in!" << endl;
+            system("PAUSE");
+            return 1;
+        }
     }
-    else
-    {
-        cout << "Success logged in!" << endl;
-        system("PAUSE");
-        return 1;
-    }
-    
 }
