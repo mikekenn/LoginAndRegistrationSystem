@@ -17,7 +17,7 @@ bool IsLoggedIn(){
     cout << "Enter password: ";
     cin >> password;
 
-    ifstream read("data/" + username + ".txt");
+    ifstream read("/Users/michael/GitProjects/LoginAndRegistrationSystem/data/" + username + ".txt");
     getline(read, un);
     getline(read, pw);
 
@@ -32,45 +32,50 @@ bool IsLoggedIn(){
 int main(){
 
     int choice;
+    string username, password;
+    User LoggedInUser;
 
-    cout << "1: Register\n2: Login\n:Your choice: ";
-    cin >> choice;
-
-
-    if (choice == 1)
+    do
     {
-        User LoggerInUser("Amanda","testing123");
+        cout << "1: Register\n2: Login\n:Your choice: ";
+        cin >> choice;
 
-        string username, password;
-
-        cout << "select a username: ";
-        cin >> username;
-
-        cout << "select a password: ";
-        cin >> password;
-
-        ofstream file;
-        file.open("data/" + username + ".txt");
-
-        file << username << endl << password;
-
-        file.close();
-    }
-    else if (choice == 2)
-    {
-        bool status = IsLoggedIn();
-
-        if (!status)
+        if (choice == 1)
         {
-            cout << "Failed login!" << endl;
-            system("PAUSE");
-            return 0;
+            cout << "select a username: ";
+            cin >> username;
+
+            cout << "select a password: ";
+            cin >> password;
+
+            LoggedInUser.SetUserName(username);
+            LoggedInUser.SetPassword(password);
+
+            ofstream file;
+            file.open("/Users/michael/GitProjects/LoginAndRegistrationSystem/data/" + LoggedInUser.GetUserName() + ".txt");
+
+            file << LoggedInUser.GetUserName() << endl << LoggedInUser.GetPassword();
+
+            file.close();
         }
-        else
+        else if (choice == 2)
         {
-            cout << "Successful login!" << endl;
-            system("PAUSE");
-            return 1;
+            LoggedInUser.SetStatus(IsLoggedIn());
+            
+            if (LoggedInUser.GetStatus() == false)
+            {
+                cout << "Failed login!" << endl;
+                system("PAUSE");
+                LoggedInUser.SetStatus(false);
+            }
+            else
+            {
+                cout << "Successful login!" << endl;
+                system("PAUSE");
+                LoggedInUser.SetStatus(true);
+            }
         }
-    }
+    } while (LoggedInUser.GetStatus() == false);
+
+    return 0;
 }
