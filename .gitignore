@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+.vscode/defh.code-snippets
+.vscode/defm.code-snippets
+.vscode/launch.json
+.vscode/tasks.json
+data/*
+*output*
