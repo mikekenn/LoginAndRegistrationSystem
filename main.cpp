@@ -58,13 +58,13 @@ int main(){
 
         if (!status)
         {
-            cout << "False login!" << endl;
+            cout << "Failed login!" << endl;
             system("PAUSE");
             return 0;
         }
         else
         {
-            cout << "Success logged in!" << endl;
+            cout << "Successful login!" << endl;
             system("PAUSE");
             return 1;
         }
