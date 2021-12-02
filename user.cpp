@@ -1,9 +1,18 @@
-#include "user.h"
+#include "User.h"
 
-user::user(/* args */)
+User::User(std::string un, std::string pw)
+: username(un), password(pw)
 {
 }
 
-user::~user()
+User::~User()
 {
+}
+
+std::string User::GetUserName(){
+    return username;
+}
+
+std::string User::GetPassword(){
+    return password;
 }

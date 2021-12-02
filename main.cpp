@@ -1,4 +1,4 @@
-#include "user.h"
+#include "User.h"
 
 #include <iostream>
 #include <fstream>
@@ -39,6 +39,8 @@ int main(){
 
     if (choice == 1)
     {
+        User LoggerInUser("Amanda","testing123");
+
         string username, password;
 
         cout << "select a username: ";
