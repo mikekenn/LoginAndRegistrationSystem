@@ -17,8 +17,8 @@ public:
     ~User();
     std::string GetUserName();
     std::string GetPassword();
-    void SetUserName(std::string un);
-    void SetPassword(std::string pw);
+    void SetUserName();
+    void SetPassword();
     bool GetStatus();
     void SetStatus(bool InStatus);
 };
